@@ -3,28 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EmpreendeLab – Aprenda a Empreender</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<title>EmpreendeLab Guarapiranga – Ferramentas Digitais para seu Negócio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #012F7F;
-    --navy-dark: #011f56;
-    --orange: #E8722A;
-    --orange-light: #F5A05A;
-    --cream: #F8F6F1;
-    --white: #FFFFFF;
-    --text: #1a1a2e;
-    --text-muted: #5a5a7a;
-    --success: #2a9d5c;
-    --grad: linear-gradient(135deg, #012F7F 0%, #0a4da6 60%, #1565c0 100%);
+    --green: #1a6b3c;
+    --green-mid: #2a9d5c;
+    --green-light: #4cc97a;
+    --amber: #e8922a;
+    --amber-light: #f5b85a;
+    --cream: #faf8f3;
+    --brown: #2c1a0e;
+    --brown-mid: #5c3d1e;
+    --white: #ffffff;
+    --text: #1c1c1c;
+    --muted: #6b6b6b;
+    --card-bg: #ffffff;
+    --border: rgba(26,107,60,0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     background: var(--cream);
     color: var(--text);
     overflow-x: hidden;
@@ -33,811 +35,782 @@
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(1,47,127,0.96);
-    backdrop-filter: blur(12px);
+    background: rgba(26,107,60,0.97);
+    backdrop-filter: blur(10px);
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%;
-    height: 64px;
-    box-shadow: 0 2px 20px rgba(1,47,127,0.25);
+    padding: 0 6%; height: 60px;
   }
   .logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1.4rem;
-    color: var(--white);
-    letter-spacing: -0.5px;
+    font-family: 'Fraunces', serif;
+    font-weight: 900; font-size: 1.3rem;
+    color: white; letter-spacing: -0.5px;
   }
-  .logo span { color: var(--orange); }
-  nav ul { display: flex; gap: 2rem; list-style: none; }
-  nav ul a {
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    transition: color 0.2s;
-  }
-  nav ul a:hover { color: var(--orange-light); }
+  .logo span { color: var(--amber-light); }
+  nav ul { display: flex; gap: 1.8rem; list-style: none; }
+  nav a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+  nav a:hover { color: var(--amber-light); }
 
   /* ── HERO ── */
   #hero {
     min-height: 100vh;
-    background: var(--grad);
+    background: linear-gradient(150deg, #0d3d22 0%, #1a6b3c 50%, #1e7d46 100%);
     display: flex; align-items: center;
+    padding: 100px 6% 60px;
     position: relative; overflow: hidden;
-    padding: 80px 5% 60px;
   }
   #hero::before {
     content: '';
     position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(232,114,42,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(255,255,255,0.05) 0%, transparent 60%);
+    background-image: radial-gradient(circle at 70% 30%, rgba(232,146,42,0.15) 0%, transparent 55%),
+                      radial-gradient(circle at 20% 80%, rgba(76,201,122,0.1) 0%, transparent 50%);
   }
-  .hero-content {
+  /* Decorative circles */
+  #hero::after {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 50%;
+    right: -150px; top: 50%; transform: translateY(-50%);
+  }
+
+  .hero-inner {
     position: relative; z-index: 2;
-    max-width: 660px;
-    animation: fadeUp 0.9s ease both;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    max-width: 1200px; width: 100%;
   }
-  .tag {
-    display: inline-block;
-    background: rgba(232,114,42,0.2);
-    border: 1px solid rgba(232,114,42,0.5);
-    color: var(--orange-light);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
+  .hero-text { animation: fadeUp 0.8s ease both; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(232,146,42,0.2);
+    border: 1px solid rgba(232,146,42,0.4);
+    color: var(--amber-light);
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    padding: 5px 13px; border-radius: 100px;
+    margin-bottom: 1.4rem;
   }
   h1 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-    line-height: 1.08;
-    color: var(--white);
-    margin-bottom: 1.2rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    color: white; line-height: 1.05;
     letter-spacing: -1.5px;
+    margin-bottom: 1.2rem;
   }
-  h1 em { color: var(--orange-light); font-style: normal; }
+  h1 em { color: var(--amber-light); font-style: italic; }
   .hero-sub {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.65;
-    margin-bottom: 2.5rem;
-    max-width: 520px;
+    color: rgba(255,255,255,0.72);
+    font-size: 1.05rem; line-height: 1.7;
+    margin-bottom: 2rem; max-width: 480px;
   }
-  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 26px;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600; font-size: 0.95rem;
-    cursor: pointer; text-decoration: none;
-    transition: all 0.22s ease;
-    border: none;
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 13px 24px; border-radius: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: 0.9rem;
+    cursor: pointer; text-decoration: none; border: none;
+    transition: all 0.2s ease;
   }
-  .btn-primary {
-    background: var(--orange);
-    color: var(--white);
-    box-shadow: 0 4px 20px rgba(232,114,42,0.4);
-  }
-  .btn-primary:hover { background: #d4621e; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,114,42,0.45); }
-  .btn-outline {
-    background: transparent;
-    color: var(--white);
-    border: 1.5px solid rgba(255,255,255,0.4);
-  }
-  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+  .btn-amber { background: var(--amber); color: white; box-shadow: 0 4px 20px rgba(232,146,42,0.4); }
+  .btn-amber:hover { background: #d4821e; transform: translateY(-2px); }
+  .btn-ghost { background: rgba(255,255,255,0.1); color: white; border: 1.5px solid rgba(255,255,255,0.3); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.18); }
 
-  .hero-shapes {
-    position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
-    z-index: 1;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    animation: fadeUp 1.1s 0.2s ease both;
+  /* Hero right — stat cards */
+  .hero-cards {
+    display: flex; flex-direction: column; gap: 1rem;
+    animation: fadeUp 0.9s 0.15s ease both;
   }
   .hcard {
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 16px;
-    padding: 20px;
-    width: 160px;
-    backdrop-filter: blur(4px);
+    border-radius: 16px; padding: 18px 22px;
+    display: flex; align-items: center; gap: 16px;
+    backdrop-filter: blur(6px);
   }
-  .hcard-icon { font-size: 2rem; margin-bottom: 8px; }
+  .hcard-ico {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(232,146,42,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; flex-shrink: 0;
+  }
   .hcard-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.8rem; font-weight: 800;
-    color: var(--orange-light);
+    font-family: 'Fraunces', serif;
+    font-weight: 900; font-size: 1.5rem;
+    color: var(--amber-light); line-height: 1;
   }
-  .hcard-label { font-size: 0.75rem; color: rgba(255,255,255,0.65); margin-top: 2px; }
+  .hcard-label { font-size: 0.8rem; color: rgba(255,255,255,0.65); margin-top: 2px; }
 
   /* ── SECTIONS ── */
-  section { padding: 80px 5%; }
-  .section-label {
-    font-size: 0.78rem; font-weight: 700;
+  section { padding: 80px 6%; }
+  .section-eyebrow {
+    font-size: 0.75rem; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 0.6rem;
+    color: var(--green-mid); margin-bottom: 0.5rem;
   }
   h2 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    letter-spacing: -1px;
-    color: var(--navy);
-    line-height: 1.15;
-    margin-bottom: 1rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 900; font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--brown); letter-spacing: -1px;
+    line-height: 1.15; margin-bottom: 0.9rem;
   }
-  .section-intro {
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    max-width: 560px;
-    margin-bottom: 3rem;
+  .section-lead {
+    color: var(--muted); font-size: 1rem; line-height: 1.7;
+    max-width: 540px; margin-bottom: 3rem;
   }
 
-  /* ── CONCEITOS ── */
-  #conceitos { background: var(--white); }
-  .cards-grid {
+  /* ── FERRAMENTAS ── */
+  #ferramentas { background: white; }
+  .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
   }
-  .card {
+  .tool-card {
+    border: 1.5px solid var(--border);
+    border-radius: 18px; padding: 28px;
+    transition: all 0.25s ease; cursor: default;
     background: var(--cream);
-    border-radius: 16px;
-    padding: 28px;
-    border: 1px solid rgba(1,47,127,0.08);
-    transition: all 0.25s ease;
-    cursor: default;
   }
-  .card:hover {
+  .tool-card:hover {
+    border-color: var(--green-mid);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(1,47,127,0.12);
-    border-color: rgba(1,47,127,0.15);
+    box-shadow: 0 12px 40px rgba(26,107,60,0.12);
   }
-  .card-icon {
-    width: 52px; height: 52px;
-    background: var(--grad);
-    border-radius: 14px;
+  .tool-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1rem; }
+  .tool-ico {
+    width: 50px; height: 50px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem; flex-shrink: 0;
   }
-  .card h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700; font-size: 1.05rem;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
+  .tool-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700; font-size: 1.05rem; color: var(--brown);
   }
-  .card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+  .tool-free {
+    font-size: 0.7rem; font-weight: 700;
+    background: rgba(42,157,92,0.12); color: var(--green);
+    padding: 2px 8px; border-radius: 100px;
+    letter-spacing: 0.5px;
+  }
+  .tool-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+  .tool-use {
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--green); background: rgba(42,157,92,0.08);
+    padding: 6px 12px; border-radius: 6px;
+    display: inline-block;
+  }
 
-  /* ── MAPA MENTAL ── */
-  #mapa { background: var(--cream); }
-  .mapa-container {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 4px 40px rgba(1,47,127,0.08);
-    overflow: auto;
+  /* ── COMO USAR (accordion) ── */
+  #como { background: var(--cream); }
+  .accordion { display: flex; flex-direction: column; gap: 0.75rem; max-width: 800px; }
+  .acc-item {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 14px; overflow: hidden;
   }
-  .mapa-svg-wrap { display: flex; justify-content: center; }
-  .mapa-svg-wrap svg { max-width: 100%; height: auto; }
+  .acc-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 22px; cursor: pointer;
+    transition: background 0.2s;
+    gap: 1rem;
+  }
+  .acc-header:hover { background: rgba(26,107,60,0.03); }
+  .acc-left { display: flex; align-items: center; gap: 14px; }
+  .acc-num {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--green); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-weight: 900; font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .acc-title { font-weight: 700; font-size: 0.95rem; color: var(--brown); }
+  .acc-arrow { font-size: 1.1rem; transition: transform 0.3s; color: var(--green-mid); flex-shrink: 0; }
+  .acc-item.open .acc-arrow { transform: rotate(180deg); }
+  .acc-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s;
+    padding: 0 22px;
+    font-size: 0.9rem; color: var(--muted); line-height: 1.7;
+  }
+  .acc-item.open .acc-body { max-height: 300px; padding: 0 22px 18px; }
+  .acc-body ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+  .acc-body li { margin-bottom: 4px; }
 
   /* ── QUIZ ── */
-  #quiz { background: var(--white); }
-  .quiz-box {
+  #quiz { background: white; }
+  .quiz-wrap {
     background: var(--cream);
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 740px;
-    box-shadow: 0 4px 30px rgba(1,47,127,0.06);
+    border-radius: 20px; padding: 40px;
+    max-width: 720px;
+    border: 1.5px solid var(--border);
   }
-  .quiz-progress-bar {
-    height: 6px; background: rgba(1,47,127,0.1);
-    border-radius: 10px; margin-bottom: 2rem; overflow: hidden;
-  }
-  .quiz-progress-fill {
-    height: 100%;
-    background: var(--grad);
-    border-radius: 10px;
-    transition: width 0.4s ease;
-  }
-  .quiz-q {
-    font-family: 'Syne', sans-serif;
+  .q-bar-outer { height: 6px; background: var(--border); border-radius: 10px; margin-bottom: 2rem; overflow: hidden; }
+  .q-bar-inner { height: 100%; background: linear-gradient(90deg, var(--green), var(--green-light)); border-radius: 10px; transition: width 0.4s ease; }
+  .q-count { font-size: 0.78rem; color: var(--muted); font-weight: 600; margin-bottom: 0.4rem; letter-spacing: 0.5px; }
+  .q-text {
+    font-family: 'Fraunces', serif;
     font-weight: 700; font-size: 1.15rem;
-    color: var(--navy); margin-bottom: 1.5rem;
-    line-height: 1.4;
+    color: var(--brown); margin-bottom: 1.5rem; line-height: 1.4;
   }
-  .quiz-counter {
-    font-size: 0.8rem; color: var(--text-muted);
-    margin-bottom: 0.5rem; font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-  .quiz-options { display: flex; flex-direction: column; gap: 0.75rem; }
-  .quiz-opt {
-    background: var(--white);
-    border: 1.5px solid rgba(1,47,127,0.12);
-    border-radius: 10px;
-    padding: 14px 18px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    color: var(--text);
-    text-align: left;
+  .q-opts { display: flex; flex-direction: column; gap: 0.7rem; }
+  .q-opt {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 13px 18px;
+    cursor: pointer; font-size: 0.92rem; color: var(--text);
+    text-align: left; font-family: 'Plus Jakarta Sans', sans-serif;
     transition: all 0.18s ease;
-    font-family: 'DM Sans', sans-serif;
   }
-  .quiz-opt:hover:not(:disabled) {
-    border-color: var(--navy);
-    background: rgba(1,47,127,0.04);
+  .q-opt:hover:not(:disabled) { border-color: var(--green-mid); background: rgba(42,157,92,0.04); }
+  .q-opt.correct { background: #e6f8ee; border-color: var(--green-mid); color: var(--green); }
+  .q-opt.wrong { background: #fdf0ec; border-color: #d94f30; color: #a83920; }
+  .q-fb {
+    margin-top: 1rem; padding: 13px 16px;
+    border-radius: 10px; font-size: 0.88rem;
+    line-height: 1.55; display: none;
   }
-  .quiz-opt.correct { background: #e8f8ef; border-color: var(--success); color: #1a6b3c; }
-  .quiz-opt.wrong { background: #fdf0ec; border-color: #d94f30; color: #a8391f; }
-  .quiz-feedback {
-    margin-top: 1.2rem;
-    padding: 14px 18px;
-    border-radius: 10px;
-    font-size: 0.92rem;
-    line-height: 1.55;
-    display: none;
-  }
-  .quiz-feedback.show { display: block; }
-  .quiz-feedback.correct { background: #e8f8ef; color: #1a6b3c; border-left: 4px solid var(--success); }
-  .quiz-feedback.wrong { background: #fdf0ec; color: #a8391f; border-left: 4px solid #d94f30; }
-  .quiz-nav { display: flex; justify-content: flex-end; margin-top: 1.5rem; }
-  .quiz-result {
-    text-align: center; display: none;
-    animation: fadeUp 0.5s ease;
-  }
-  .quiz-result.show { display: block; }
-  .result-score {
-    font-family: 'Syne', sans-serif;
-    font-size: 4rem; font-weight: 800;
-    color: var(--navy);
-    line-height: 1;
-    margin: 1rem 0 0.5rem;
-  }
-  .result-msg { color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem; }
-  .result-emoji { font-size: 3rem; }
+  .q-fb.show { display: block; }
+  .q-fb.correct { background: #e6f8ee; color: var(--green); border-left: 4px solid var(--green-mid); }
+  .q-fb.wrong { background: #fdf0ec; color: #a83920; border-left: 4px solid #d94f30; }
+  .q-next { display: flex; justify-content: flex-end; margin-top: 1.2rem; }
+  .q-result { text-align: center; display: none; animation: fadeUp 0.5s ease; }
+  .q-result.show { display: block; }
+  .result-big { font-family: 'Fraunces', serif; font-weight: 900; font-size: 4rem; color: var(--green); line-height: 1; margin: 1rem 0 0.5rem; }
+  .result-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
 
-  /* ── GUIA PRÁTICO ── */
-  #guia { background: var(--cream); }
-  .guia-steps {
-    display: flex; flex-direction: column; gap: 0;
-    max-width: 800px;
-  }
-  .step {
-    display: flex; gap: 2rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(1,47,127,0.08);
-    animation: fadeUp 0.5s ease both;
-  }
-  .step:last-child { border-bottom: none; }
-  .step-num {
-    flex-shrink: 0;
-    width: 52px; height: 52px;
-    background: var(--navy);
-    color: white;
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1.2rem;
-  }
-  .step-body h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700; font-size: 1.05rem;
-    color: var(--navy); margin-bottom: 0.5rem;
-  }
-  .step-body p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; }
-  .step-body ul { margin-top: 0.6rem; padding-left: 1.2rem; }
-  .step-body li { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 4px; line-height: 1.55; }
-
-  /* ── RECURSOS ── */
-  #recursos { background: var(--white); }
-  .recursos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* ── CHECKLIST ── */
+  #checklist { background: linear-gradient(135deg, #0d3d22 0%, #1a6b3c 100%); }
+  #checklist h2 { color: white; }
+  #checklist .section-lead { color: rgba(255,255,255,0.65); }
+  #checklist .section-eyebrow { color: var(--amber-light); }
+  .check-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.2rem;
   }
-  .recurso-card {
-    border: 1.5px solid rgba(1,47,127,0.12);
-    border-radius: 14px;
-    padding: 22px;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.22s ease;
-    display: flex; flex-direction: column; gap: 10px;
+  .check-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 22px;
+    cursor: pointer; transition: all 0.22s ease;
+    user-select: none;
   }
-  .recurso-card:hover {
-    border-color: var(--navy);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(1,47,127,0.1);
+  .check-card:hover { background: rgba(255,255,255,0.13); }
+  .check-card.done { background: rgba(76,201,122,0.15); border-color: rgba(76,201,122,0.4); }
+  .check-top { display: flex; align-items: center; gap: 12px; margin-bottom: 0.6rem; }
+  .check-box {
+    width: 24px; height: 24px; border-radius: 6px;
+    border: 2px solid rgba(255,255,255,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; color: white; flex-shrink: 0;
+    transition: all 0.2s;
   }
-  .recurso-ico { font-size: 1.8rem; }
-  .recurso-card h4 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700; font-size: 0.95rem;
-    color: var(--navy);
+  .check-card.done .check-box { background: var(--green-light); border-color: var(--green-light); }
+  .check-card h4 { font-weight: 700; font-size: 0.92rem; color: white; }
+  .check-card p { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.55; }
+  .check-progress {
+    margin-bottom: 2rem;
+    color: rgba(255,255,255,0.7); font-size: 0.88rem;
   }
-  .recurso-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.5; }
-  .recurso-tag {
-    display: inline-block;
-    font-size: 0.72rem; font-weight: 700;
-    letter-spacing: 0.5px;
-    padding: 3px 9px;
-    border-radius: 100px;
-    background: rgba(1,47,127,0.08);
-    color: var(--navy);
-    align-self: flex-start;
-    margin-top: auto;
-  }
+  .check-progress strong { color: var(--amber-light); font-size: 1.1rem; }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--navy-dark);
-    color: rgba(255,255,255,0.65);
-    text-align: center;
-    padding: 3rem 5%;
-    font-size: 0.85rem;
-    line-height: 1.8;
+    background: var(--brown);
+    color: rgba(255,255,255,0.55);
+    text-align: center; padding: 3rem 6%;
+    font-size: 0.83rem; line-height: 1.9;
   }
-  footer strong { color: var(--orange-light); }
-  footer .footer-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1.4rem;
-    color: white; margin-bottom: 0.5rem;
-  }
-  footer .footer-logo span { color: var(--orange); }
+  footer .f-logo { font-family: 'Fraunces', serif; font-weight: 900; font-size: 1.3rem; color: white; margin-bottom: 0.4rem; }
+  footer .f-logo span { color: var(--amber-light); }
+  footer strong { color: var(--amber-light); }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(22px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .hero-shapes { display: none; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-cards { display: none; }
     nav ul { display: none; }
-    .mapa-container { padding: 20px; }
-    .quiz-box { padding: 24px; }
+    .quiz-wrap { padding: 24px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="logo">Empreende<span>Lab</span></div>
+  <div class="logo">Empreende<span>Lab</span> <span style="font-size:0.7rem;opacity:0.6;font-family:'Plus Jakarta Sans';font-weight:500;">Guarapiranga</span></div>
   <ul>
-    <li><a href="#conceitos">Conceitos</a></li>
-    <li><a href="#mapa">Mapa Mental</a></li>
+    <li><a href="#ferramentas">Ferramentas</a></li>
+    <li><a href="#como">Como Usar</a></li>
     <li><a href="#quiz">Quiz</a></li>
-    <li><a href="#guia">Guia Prático</a></li>
-    <li><a href="#recursos">Recursos</a></li>
+    <li><a href="#checklist">Checklist</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-content">
-    <div class="tag">Projeto de Extensão · UNISA</div>
-    <h1>Aprenda a <em>empreender</em> e inovar de verdade</h1>
-    <p class="hero-sub">
-      Plataforma educacional gratuita sobre Gestão Empreendedora e Inovação. Conceitos claros, quiz interativo, guia prático e recursos para transformar sua ideia em negócio.
-    </p>
-    <div class="btn-group">
-      <a href="#quiz" class="btn btn-primary">🎯 Fazer o Quiz</a>
-      <a href="#conceitos" class="btn btn-outline">📚 Ver Conceitos</a>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="pill">📍 Guarapiranga · São Paulo · Projeto de Extensão UNISA</div>
+      <h1>Seu negócio local mais <em>forte</em> com ferramentas digitais</h1>
+      <p class="hero-sub">Guia gratuito com as melhores ferramentas digitais para pequenos empreendedores de Guarapiranga venderem mais, atenderem melhor e crescerem com tecnologia.</p>
+      <div class="btn-row">
+        <a href="#ferramentas" class="btn btn-amber">🚀 Ver as Ferramentas</a>
+        <a href="#quiz" class="btn btn-ghost">🎯 Fazer o Quiz</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-shapes">
-    <div class="hcard">
-      <div class="hcard-icon">🚀</div>
-      <div class="hcard-num">50M+</div>
-      <div class="hcard-label">Brasileiros empreendedores</div>
-    </div>
-    <div class="hcard">
-      <div class="hcard-icon">💡</div>
-      <div class="hcard-num">36%</div>
-      <div class="hcard-label">Dos brasileiros empreende</div>
-    </div>
-    <div class="hcard">
-      <div class="hcard-icon">📈</div>
-      <div class="hcard-num">ODS 8</div>
-      <div class="hcard-label">Trabalho e crescimento</div>
-    </div>
-    <div class="hcard">
-      <div class="hcard-icon">🎓</div>
-      <div class="hcard-num">100%</div>
-      <div class="hcard-label">Gratuito e acessível</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONCEITOS -->
-<section id="conceitos">
-  <div class="section-label">Fundamentos</div>
-  <h2>Conceitos Essenciais</h2>
-  <p class="section-intro">Entenda os pilares do empreendedorismo e da inovação com linguagem simples e direta.</p>
-  <div class="cards-grid">
-    <div class="card">
-      <div class="card-icon">🧠</div>
-      <h3>O que é Empreendedorismo?</h3>
-      <p>É a capacidade de identificar oportunidades e transformá-las em negócios ou soluções, assumindo riscos calculados. O termo vem do francês <em>entrepreneur</em> e foi popularizado no séc. XVIII por Richard Cantillon.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">⚡</div>
-      <h3>Destruição Criativa</h3>
-      <p>Conceito de Schumpeter (1950): o empreendedor é capaz de converter uma ideia em inovação bem-sucedida, substituindo produtos antigos por novos — movendo a economia para frente.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🔬</div>
-      <h3>Inovação</h3>
-      <p>Não é só tecnologia! Inovar é criar valor novo: pode ser um produto, processo, modelo de negócio ou experiência diferente. Pequenas empresas inovam mais que grandes por terem mais flexibilidade.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🌱</div>
-      <h3>Empreendedorismo Sustentável</h3>
-      <p>Une geração de valor econômico com responsabilidade ambiental e social. Negócios sustentáveis pensam no longo prazo, considerando impacto nas pessoas e no planeta.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🏢</div>
-      <h3>Empreendedorismo Corporativo</h3>
-      <p>Também chamado de <em>intraempreendedorismo</em>: é quando colaboradores dentro de uma empresa agem como empreendedores — propõem, desenvolvem e implementam novas ideias internamente.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🎯</div>
-      <h3>Processo Empreendedor</h3>
-      <p>Inclui identificar oportunidades, desenvolver o plano de negócio, buscar recursos, montar a equipe e executar — um ciclo que exige resiliência, criatividade e visão de mercado.</p>
+    <div class="hero-cards">
+      <div class="hcard">
+        <div class="hcard-ico">📱</div>
+        <div>
+          <div class="hcard-num">100%</div>
+          <div class="hcard-label">Ferramentas gratuitas ou freemium</div>
+        </div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-ico">🏪</div>
+        <div>
+          <div class="hcard-num">8+</div>
+          <div class="hcard-label">Categorias de negócio contempladas</div>
+        </div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-ico">📈</div>
+        <div>
+          <div class="hcard-num">ODS 8</div>
+          <div class="hcard-label">Trabalho decente e crescimento econômico</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- MAPA MENTAL -->
-<section id="mapa">
-  <div class="section-label">Visão Geral</div>
-  <h2>Mapa Mental do Conteúdo</h2>
-  <p class="section-intro">Veja como os temas da disciplina se conectam.</p>
-  <div class="mapa-container">
-    <div class="mapa-svg-wrap">
-      <svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', sans-serif">
-        <!-- Central -->
-        <ellipse cx="450" cy="260" rx="110" ry="52" fill="#012F7F" rx="110"/>
-        <text x="450" y="254" text-anchor="middle" fill="white" font-size="14" font-weight="700">Gestão</text>
-        <text x="450" y="272" text-anchor="middle" fill="#F5A05A" font-size="14" font-weight="700">Empreendedora</text>
+<!-- FERRAMENTAS -->
+<section id="ferramentas">
+  <div class="section-eyebrow">Transformação Digital</div>
+  <h2>Ferramentas Digitais Gratuitas</h2>
+  <p class="section-lead">Conheça as principais ferramentas para digitalizar seu negócio em Guarapiranga — do atendimento à venda, tudo gratuito ou quase.</p>
+  <div class="tools-grid">
 
-        <!-- Lines -->
-        <line x1="340" y1="240" x2="210" y2="145" stroke="#012F7F" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
-        <line x1="340" y1="260" x2="185" y2="260" stroke="#012F7F" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
-        <line x1="340" y1="278" x2="210" y2="375" stroke="#012F7F" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
-        <line x1="560" y1="240" x2="690" y2="145" stroke="#E8722A" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
-        <line x1="560" y1="260" x2="715" y2="260" stroke="#E8722A" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
-        <line x1="560" y1="278" x2="690" y2="375" stroke="#E8722A" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
-        <line x1="450" y1="208" x2="450" y2="100" stroke="#012F7F" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
-        <line x1="450" y1="312" x2="450" y2="420" stroke="#E8722A" stroke-width="2" stroke-dasharray="5,3" opacity="0.4"/>
-
-        <!-- Left nodes -->
-        <rect x="90" y="108" width="135" height="44" rx="10" fill="#e8f0fb"/>
-        <text x="157" y="133" text-anchor="middle" fill="#012F7F" font-size="12" font-weight="600">Empreendedor</text>
-
-        <rect x="55" y="238" width="145" height="44" rx="10" fill="#e8f0fb"/>
-        <text x="127" y="263" text-anchor="middle" fill="#012F7F" font-size="12" font-weight="600">Processo Empreend.</text>
-
-        <rect x="90" y="355" width="135" height="44" rx="10" fill="#e8f0fb"/>
-        <text x="157" y="380" text-anchor="middle" fill="#012F7F" font-size="12" font-weight="600">Sustentabilidade</text>
-
-        <!-- Right nodes -->
-        <rect x="675" y="108" width="130" height="44" rx="10" fill="#fdf0e6"/>
-        <text x="740" y="133" text-anchor="middle" fill="#c0521a" font-size="12" font-weight="600">Inovação</text>
-
-        <rect x="710" y="238" width="140" height="44" rx="10" fill="#fdf0e6"/>
-        <text x="780" y="263" text-anchor="middle" fill="#c0521a" font-size="12" font-weight="600">Intraempreend.</text>
-
-        <rect x="675" y="355" width="130" height="44" rx="10" fill="#fdf0e6"/>
-        <text x="740" y="380" text-anchor="middle" fill="#c0521a" font-size="12" font-weight="600">Tecnologia</text>
-
-        <!-- Top/Bottom -->
-        <rect x="370" y="60" width="160" height="44" rx="10" fill="#012F7F"/>
-        <text x="450" y="85" text-anchor="middle" fill="white" font-size="12" font-weight="700">Identificar Oportunidades</text>
-
-        <rect x="370" y="415" width="160" height="44" rx="10" fill="#E8722A"/>
-        <text x="450" y="440" text-anchor="middle" fill="white" font-size="12" font-weight="700">Gerar Valor Social</text>
-
-        <!-- Sub labels -->
-        <text x="157" y="168" text-anchor="middle" fill="#5a5a7a" font-size="10">Perfil, competências, riscos</text>
-        <text x="127" y="298" text-anchor="middle" fill="#5a5a7a" font-size="10">Ideia → Execução</text>
-        <text x="157" y="415" text-anchor="middle" fill="#5a5a7a" font-size="10">Ambiental + Social</text>
-        <text x="740" y="168" text-anchor="middle" fill="#5a5a7a" font-size="10">Produtos, processos, modelos</text>
-        <text x="780" y="298" text-anchor="middle" fill="#5a5a7a" font-size="10">Inovação interna</text>
-        <text x="740" y="415" text-anchor="middle" fill="#5a5a7a" font-size="10">Digital + disruptiva</text>
-      </svg>
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-ico">💬</div>
+        <div>
+          <h3>WhatsApp Business</h3>
+          <span class="tool-free">GRATUITO</span>
+        </div>
+      </div>
+      <p>Versão profissional do WhatsApp para negócios. Crie catálogo de produtos, respostas automáticas, horário de funcionamento e separe o pessoal do profissional.</p>
+      <span class="tool-use">✅ Ideal para: salões, lanches, serviços gerais</span>
     </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-ico">📸</div>
+        <div>
+          <h3>Instagram & Facebook</h3>
+          <span class="tool-free">GRATUITO</span>
+        </div>
+      </div>
+      <p>Crie uma vitrine digital gratuita. Publique fotos dos produtos, stories diários, promoções e use o Instagram Shopping para vender diretamente pelo app.</p>
+      <span class="tool-use">✅ Ideal para: moda, alimentos, artesanato</span>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-ico">🗺️</div>
+        <div>
+          <h3>Google Meu Negócio</h3>
+          <span class="tool-free">GRATUITO</span>
+        </div>
+      </div>
+      <p>Apareça no Google Maps quando clientes procurarem serviços perto de Guarapiranga. Adicione fotos, horários, telefone e receba avaliações. Essencial para qualquer negócio local.</p>
+      <span class="tool-use">✅ Ideal para: todos os negócios locais</span>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-ico">🎨</div>
+        <div>
+          <h3>Canva</h3>
+          <span class="tool-free">FREEMIUM</span>
+        </div>
+      </div>
+      <p>Crie artes profissionais para posts, cardápios, panfletos e stories sem precisar saber design. Tem milhares de templates prontos e é muito fácil de usar no celular.</p>
+      <span class="tool-use">✅ Ideal para: qualquer negócio que divulga online</span>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-ico">💳</div>
+        <div>
+          <h3>Mercado Pago / Pix</h3>
+          <span class="tool-free">GRATUITO</span>
+        </div>
+      </div>
+      <p>Receba pagamentos por Pix, cartão de crédito/débito e link de pagamento. O Pix é instantâneo e gratuito. O Mercado Pago oferece maquininha acessível e conta gratuita.</p>
+      <span class="tool-use">✅ Ideal para: todo negócio que vende produtos/serviços</span>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-ico">📊</div>
+        <div>
+          <h3>Google Planilhas</h3>
+          <span class="tool-free">GRATUITO</span>
+        </div>
+      </div>
+      <p>Controle suas finanças, estoque, pedidos e clientes de forma simples. Salva automaticamente na nuvem e acessa de qualquer celular. Substitui o caderninho de anotações.</p>
+      <span class="tool-use">✅ Ideal para: controle financeiro e de estoque</span>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-ico">🛒</div>
+        <div>
+          <h3>iFood / Rappi</h3>
+          <span class="tool-free">COMISSÃO</span>
+        </div>
+      </div>
+      <p>Cadastre seu restaurante ou lanchonete e comece a receber pedidos online. Amplia o alcance para além do bairro e funciona com entrega própria ou da plataforma.</p>
+      <span class="tool-use">✅ Ideal para: restaurantes, lanchonetes, marmitas</span>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <div class="tool-ico">📅</div>
+        <div>
+          <h3>Calendly / Google Agenda</h3>
+          <span class="tool-free">GRATUITO</span>
+        </div>
+      </div>
+      <p>Permita que clientes agendem horários online, sem precisar ligar ou mandar mensagem. Evita confusão de horários e transmite mais profissionalismo.</p>
+      <span class="tool-use">✅ Ideal para: salões, clínicas, personal trainers</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMO USAR -->
+<section id="como">
+  <div class="section-eyebrow">Passo a Passo</div>
+  <h2>Como começar a transformação digital</h2>
+  <p class="section-lead">Um roteiro prático para digitalizar seu negócio em Guarapiranga do jeito certo, sem gastar nada.</p>
+  <div class="accordion">
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <div class="acc-num">1</div>
+          <div class="acc-title">Marque presença no Google Maps</div>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+        Cadastre seu negócio no <strong>Google Meu Negócio</strong> (business.google.com). É gratuito e faz seu estabelecimento aparecer quando alguém pesquisa "lanche perto de mim" ou "salão em Guarapiranga".
+        <ul>
+          <li>Acesse business.google.com e clique em "Gerenciar agora"</li>
+          <li>Pesquise o nome do seu negócio e cadastre o endereço</li>
+          <li>Adicione fotos, horários e número de telefone</li>
+          <li>Peça para clientes deixarem avaliações — isso melhora seu posicionamento</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <div class="acc-num">2</div>
+          <div class="acc-title">Profissionalize o WhatsApp</div>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+        Baixe o <strong>WhatsApp Business</strong> (é separado do WhatsApp normal) e configure:
+        <ul>
+          <li>Perfil profissional com nome, foto, endereço e site</li>
+          <li>Catálogo de produtos com fotos e preços</li>
+          <li>Mensagem automática de ausência ("Olá! Retorno em breve...")</li>
+          <li>Etiquetas para organizar clientes (novo cliente, pendente, pago)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <div class="acc-num">3</div>
+          <div class="acc-title">Crie arte profissional com Canva</div>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+        No <strong>canva.com</strong>, pesquise o tipo de arte que precisa: "cardápio", "post Instagram", "promoção". Edite com cores do seu negócio, adicione logo e exporte. Tudo no celular mesmo.
+        <ul>
+          <li>Use templates prontos — não precisa criar do zero</li>
+          <li>Mantenha as mesmas cores e fontes em todas as artes (identidade visual)</li>
+          <li>Poste pelo menos 3 vezes por semana no Instagram</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <div class="acc-num">4</div>
+          <div class="acc-title">Aceite pagamentos digitais</div>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+        Clientes que pagam por Pix ou cartão gastam mais do que quem paga só com dinheiro. Configure:
+        <ul>
+          <li><strong>Pix:</strong> cadastre uma chave Pix no seu banco (CPF ou CNPJ) — gratuito</li>
+          <li><strong>Mercado Pago:</strong> crie conta grátis e gere links de pagamento para cobrar pelo WhatsApp</li>
+          <li><strong>Maquininha:</strong> o Mercado Pago e o InfinitePay oferecem maquininhas acessíveis sem mensalidade</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <div class="acc-num">5</div>
+          <div class="acc-title">Controle as finanças no Google Planilhas</div>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+        Saber quanto entra e quanto sai é fundamental para o negócio crescer. Com o Google Planilhas (gratuito), você pode:
+        <ul>
+          <li>Registrar entradas e saídas diárias</li>
+          <li>Controlar estoque de produtos</li>
+          <li>Ver quais produtos vendem mais</li>
+          <li>Calcular o lucro real do mês</li>
+        </ul>
+        O SEBRAE tem planilhas prontas e gratuitas para download em sebrae.com.br.
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- QUIZ -->
 <section id="quiz">
-  <div class="section-label">Teste seus Conhecimentos</div>
-  <h2>Quiz Interativo</h2>
-  <p class="section-intro">Responda as perguntas e veja o quanto você já sabe sobre empreendedorismo!</p>
-  <div class="quiz-box">
-    <div id="quiz-content">
-      <div class="quiz-counter" id="quiz-counter">Questão 1 de 8</div>
-      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-fill" style="width:12.5%"></div></div>
-      <div class="quiz-q" id="quiz-q"></div>
-      <div class="quiz-options" id="quiz-opts"></div>
-      <div class="quiz-feedback" id="quiz-fb"></div>
-      <div class="quiz-nav">
-        <button class="btn btn-primary" id="quiz-next" onclick="nextQ()" style="display:none">Próxima →</button>
-      </div>
+  <div class="section-eyebrow">Teste seus Conhecimentos</div>
+  <h2>Quiz: Você está preparado para o digital?</h2>
+  <p class="section-lead">Responda e descubra o quanto você já sabe sobre ferramentas digitais para pequenos negócios!</p>
+  <div class="quiz-wrap">
+    <div id="qcontent">
+      <div class="q-count" id="qcount">Questão 1 de 7</div>
+      <div class="q-bar-outer"><div class="q-bar-inner" id="qbar" style="width:14.3%"></div></div>
+      <div class="q-text" id="qtext"></div>
+      <div class="q-opts" id="qopts"></div>
+      <div class="q-fb" id="qfb"></div>
+      <div class="q-next"><button class="btn btn-amber" id="qnext" onclick="nextQ()" style="display:none">Próxima →</button></div>
     </div>
-    <div class="quiz-result" id="quiz-result">
-      <div class="result-emoji" id="result-emoji"></div>
-      <div class="result-score" id="result-score"></div>
-      <div class="result-msg" id="result-msg"></div>
-      <button class="btn btn-primary" onclick="restartQuiz()">🔄 Tentar Novamente</button>
+    <div class="q-result" id="qresult">
+      <div style="font-size:3rem" id="remi"></div>
+      <div class="result-big" id="rscore"></div>
+      <div class="result-sub" id="rmsg"></div>
+      <button class="btn btn-amber" onclick="restartQ()">🔄 Tentar novamente</button>
     </div>
   </div>
 </section>
 
-<!-- GUIA PRÁTICO -->
-<section id="guia">
-  <div class="section-label">Passo a Passo</div>
-  <h2>Guia Prático: Do Zero ao Negócio</h2>
-  <p class="section-intro">Um roteiro simplificado para transformar sua ideia em um negócio real.</p>
-  <div class="guia-steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h3>Identifique um Problema Real</h3>
-        <p>Todo negócio começa com um problema que as pessoas têm. Observe ao redor: o que incomoda você e outras pessoas? O que falta no bairro, na escola, no trabalho?</p>
-        <ul>
-          <li>Converse com possíveis clientes</li>
-          <li>Pesquise se outras pessoas têm o mesmo problema</li>
-          <li>Anote suas observações</li>
-        </ul>
-      </div>
+<!-- CHECKLIST -->
+<section id="checklist">
+  <div class="section-eyebrow">Autoavaliação</div>
+  <h2>Checklist Digital do seu Negócio</h2>
+  <p class="section-lead">Marque o que você já faz. Veja onde ainda pode melhorar!</p>
+  <div class="check-progress">Você completou <strong id="check-count">0</strong> de 9 itens</div>
+  <div class="check-grid" id="checklist-grid">
+    <div class="check-card" onclick="toggleCheck(this)">
+      <div class="check-top"><div class="check-box" id="cb">✓</div><h4>Tenho WhatsApp Business</h4></div>
+      <p>Conta profissional separada com catálogo e respostas automáticas</p>
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h3>Valide sua Ideia</h3>
-        <p>Antes de investir tempo e dinheiro, teste se a solução que você imagina realmente resolve o problema. Faça uma versão simples (MVP) e veja a reação das pessoas.</p>
-        <ul>
-          <li>Crie um protótipo básico ou pitch de 1 minuto</li>
-          <li>Mostre para 10 potenciais clientes</li>
-          <li>Pergunte: "Você pagaria por isso?"</li>
-        </ul>
-      </div>
+    <div class="check-card" onclick="toggleCheck(this)">
+      <div class="check-top"><div class="check-box">✓</div><h4>Estou no Google Maps</h4></div>
+      <p>Negócio cadastrado no Google Meu Negócio com fotos e horários</p>
     </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h3>Conheça seu Mercado</h3>
-        <p>Pesquise quem mais já resolve esse problema (concorrentes) e quem seria seu cliente ideal. Quanto esse mercado movimenta? Existe espaço para você?</p>
-        <ul>
-          <li>Use o SEBRAE para pesquisas de mercado grátis</li>
-          <li>Defina o perfil do seu cliente (persona)</li>
-          <li>Analise pontos fortes e fracos da concorrência</li>
-        </ul>
-      </div>
+    <div class="check-card" onclick="toggleCheck(this)">
+      <div class="check-top"><div class="check-box">✓</div><h4>Tenho perfil no Instagram</h4></div>
+      <p>Conta comercial ativa com posts regulares sobre o negócio</p>
     </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <h3>Monte seu Plano de Negócio</h3>
-        <p>Com o Canvas Modelo de Negócio (Business Model Canvas) você organiza em 1 página: proposta de valor, clientes, receitas, custos e parceiros-chave.</p>
-        <ul>
-          <li>Use ferramentas gratuitas como Canvanizer ou Miro</li>
-          <li>Defina como vai ganhar dinheiro</li>
-          <li>Estime seus custos iniciais</li>
-        </ul>
-      </div>
+    <div class="check-card" onclick="toggleCheck(this)">
+      <div class="check-top"><div class="check-box">✓</div><h4>Aceito Pix</h4></div>
+      <p>Chave Pix cadastrada e divulgada para os clientes</p>
     </div>
-    <div class="step">
-      <div class="step-num">5</div>
-      <div class="step-body">
-        <h3>Formalize e Cresça</h3>
-        <p>Abra seu MEI (Microempreendedor Individual) se faturar até R$81.000/ano — é gratuito, rápido e te dá acesso a crédito, CNPJ e benefícios sociais.</p>
-        <ul>
-          <li>MEI gratuito em gov.br/mei</li>
-          <li>Busque editais de fomento e aceleradoras</li>
-          <li>Conecte-se com outros empreendedores</li>
-        </ul>
-      </div>
+    <div class="check-card" onclick="toggleCheck(this)">
+      <div class="check-top"><div class="check-box">✓</div><h4>Aceito cartão de crédito/débito</h4></div>
+      <p>Maquininha ou link de pagamento digital disponível</p>
+    </div>
+    <div class="check-card" onclick="toggleCheck(this)">
+      <div class="check-top"><div class="check-box">✓</div><h4>Uso o Canva para criar artes</h4></div>
+      <p>Materiais visuais profissionais para divulgação online</p>
+    </div>
+    <div class="check-card" onclick="toggleCheck(this)">
+      <div class="check-top"><div class="check-box">✓</div><h4>Controlo meu financeiro</h4></div>
+      <p>Registro de entradas e saídas em planilha ou aplicativo</p>
+    </div>
+    <div class="check-card" onclick="toggleCheck(this)">
+      <div class="check-top"><div class="check-box">✓</div><h4>Tenho CNPJ (MEI)</h4></div>
+      <p>Formalizado como Microempreendedor Individual</p>
+    </div>
+    <div class="check-card" onclick="toggleCheck(this)">
+      <div class="check-top"><div class="check-box">✓</div><h4>Já fiz algum curso do SEBRAE</h4></div>
+      <p>Capacitação gratuita em gestão, marketing ou finanças</p>
     </div>
   </div>
 </section>
 
-<!-- RECURSOS -->
-<section id="recursos">
-  <div class="section-label">Links Úteis</div>
-  <h2>Recursos Gratuitos</h2>
-  <p class="section-intro">Ferramentas e plataformas para continuar aprendendo e desenvolver seu negócio.</p>
-  <div class="recursos-grid">
-    <a href="https://www.sebrae.com.br" target="_blank" class="recurso-card">
-      <div class="recurso-ico">🏛️</div>
-      <h4>SEBRAE</h4>
-      <p>Cursos gratuitos, consultorias, pesquisas de mercado e suporte para pequenos negócios.</p>
-      <span class="recurso-tag">sebrae.com.br</span>
-    </a>
-    <a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank" class="recurso-card">
-      <div class="recurso-ico">📝</div>
-      <h4>Portal MEI</h4>
-      <p>Abra seu CNPJ como Microempreendedor Individual de forma gratuita e online.</p>
-      <span class="recurso-tag">gov.br/mei</span>
-    </a>
-    <a href="https://www.endeavor.org.br" target="_blank" class="recurso-card">
-      <div class="recurso-ico">🚀</div>
-      <h4>Endeavor Brasil</h4>
-      <p>Conteúdo, mentorias e programas para empreendedores de alto impacto.</p>
-      <span class="recurso-tag">endeavor.org.br</span>
-    </a>
-    <a href="https://www.bndes.gov.br" target="_blank" class="recurso-card">
-      <div class="recurso-ico">💰</div>
-      <h4>BNDES</h4>
-      <p>Linhas de crédito e programas de financiamento para inovação e pequenas empresas.</p>
-      <span class="recurso-tag">bndes.gov.br</span>
-    </a>
-    <a href="https://miro.com" target="_blank" class="recurso-card">
-      <div class="recurso-ico">🗺️</div>
-      <h4>Miro – Canvas Grátis</h4>
-      <p>Crie seu Business Model Canvas, mapas mentais e estratégias visuais colaborativas.</p>
-      <span class="recurso-tag">miro.com</span>
-    </a>
-    <a href="https://www.startse.com" target="_blank" class="recurso-card">
-      <div class="recurso-ico">🎓</div>
-      <h4>StartSe</h4>
-      <p>Conteúdos sobre inovação, startups e o futuro dos negócios no Brasil e no mundo.</p>
-      <span class="recurso-tag">startse.com</span>
-    </a>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Empreende<span>Lab</span></div>
-  <p>Projeto de Extensão · Disciplina: <strong>Gestão Empreendedora e Inovação</strong></p>
+  <div class="f-logo">Empreende<span>Lab</span> Guarapiranga</div>
+  <p>Projeto de Extensão · Disciplina: <strong>Inovação e Transformação Digital para Pequenos Empreendimentos</strong></p>
   <p>Universidade Santo Amaro – UNISA · São Paulo, 2025</p>
-  <p style="margin-top:0.8rem; opacity:0.55; font-size:0.78rem;">Alinhado aos ODS 4 (Educação de Qualidade) e ODS 8 (Trabalho Decente e Crescimento Econômico)</p>
+  <p style="margin-top:0.6rem;opacity:0.45;font-size:0.78rem;">ODS 4 – Educação de Qualidade · ODS 8 – Trabalho Decente e Crescimento Econômico</p>
 </footer>
 
 <script>
-const questions = [
+// ACCORDION
+function toggleAcc(header) {
+  const item = header.parentElement;
+  item.classList.toggle('open');
+}
+
+// CHECKLIST
+function toggleCheck(card) {
+  card.classList.toggle('done');
+  const done = document.querySelectorAll('.check-card.done').length;
+  document.getElementById('check-count').textContent = done;
+}
+
+// QUIZ
+const qs = [
   {
-    q: "De qual palavra francesa vem o termo 'empreendedor'?",
-    opts: ["Entrepreneuriat","Entrepreneur","Entreprise","Innover"],
+    q: "Qual ferramenta gratuita faz seu negócio aparecer no Google Maps?",
+    opts: ["Google Drive","Google Meu Negócio","Google Forms","Google Meet"],
     ans: 1,
-    exp: "Entrepreneur significa 'indivíduo que assume riscos'. O termo foi popularizado pelo economista Richard Cantillon no século XVIII."
+    exp: "O Google Meu Negócio (business.google.com) é gratuito e essencial para qualquer negócio local aparecer nas buscas e no Maps da região."
   },
   {
-    q: "Quem introduziu o conceito de 'destruição criativa' no empreendedorismo?",
-    opts: ["Peter Drucker","Max Weber","Joseph Schumpeter","Karl Marx"],
-    ans: 2,
-    exp: "Joseph Schumpeter, nos anos 1950, definiu que o empreendedor converte ideias em inovações bem-sucedidas, substituindo produtos antigos — a chamada 'destruição criativa'."
-  },
-  {
-    q: "Segundo o GEM 2018, qual percentual de brasileiros entre 18-64 anos conduzia atividades empreendedoras em 2017?",
-    opts: ["18,5%","25,0%","36,4%","42,1%"],
-    ans: 2,
-    exp: "36,4% dos brasileiros nessa faixa estavam envolvidos em atividade empreendedora — quase 50 milhões de pessoas!"
-  },
-  {
-    q: "O que é o 'locus de controle interno' no contexto do empreendedorismo?",
+    q: "Qual é a diferença do WhatsApp Business para o WhatsApp normal?",
     opts: [
-      "Controle de finanças da empresa",
-      "Crença do empreendedor de que controla seus próprios resultados",
-      "Gestão interna de equipes",
-      "Análise do ambiente interno da empresa"
+      "É pago e tem mais funções",
+      "Tem catálogo de produtos, respostas automáticas e perfil comercial",
+      "Só funciona no computador",
+      "Não tem diferença, é a mesma coisa"
     ],
     ans: 1,
-    exp: "Rotter (1966) identificou que empreendedores tendem a ter locus de controle interno — acreditam que seus resultados dependem principalmente de suas próprias ações."
+    exp: "O WhatsApp Business tem funções extras para negócios: catálogo de produtos, mensagens automáticas, etiquetas de clientes e perfil profissional — tudo gratuito!"
   },
   {
-    q: "O que é Intraempreendedorismo?",
+    q: "O que é o Pix e qual a sua principal vantagem para pequenos negócios?",
     opts: [
-      "Empreender em outros países",
-      "Abrir um negócio dentro de casa",
-      "Agir como empreendedor dentro de uma empresa já existente",
-      "Investir em startups externas"
+      "É um aplicativo de delivery pago",
+      "É um sistema de pagamento instantâneo e gratuito entre contas",
+      "É uma maquininha de cartão",
+      "É uma plataforma de vendas online"
     ],
-    ans: 2,
-    exp: "Também chamado de empreendedorismo corporativo, é quando colaboradores de uma empresa propõem e desenvolvem inovações internamente."
-  },
-  {
-    q: "Qual é o limite de faturamento anual para ser Microempreendedor Individual (MEI)?",
-    opts: ["R$ 60.000","R$ 81.000","R$ 100.000","R$ 120.000"],
     ans: 1,
-    exp: "O MEI pode faturar até R$ 81.000 por ano. É uma forma acessível de formalizar pequenos negócios com CNPJ, benefícios sociais e acesso a crédito."
+    exp: "O Pix é gratuito para pessoas físicas e MEI, funciona 24h por dia, 7 dias por semana, e o dinheiro cai na hora — ótimo para o fluxo de caixa do pequeno negócio."
   },
   {
-    q: "Qual ODS está mais diretamente ligado ao empreendedorismo e crescimento econômico?",
-    opts: ["ODS 3 – Saúde","ODS 4 – Educação","ODS 8 – Trabalho Decente","ODS 13 – Clima"],
+    q: "Para criar artes profissionais de graça para o Instagram do seu negócio, qual ferramenta usar?",
+    opts: ["Photoshop","CorelDraw","Canva","Illustrator"],
     ans: 2,
-    exp: "O ODS 8 trata de Trabalho Decente e Crescimento Econômico Sustentável — diretamente relacionado ao empreendedorismo como motor de emprego e renda."
+    exp: "O Canva tem versão gratuita com milhares de templates prontos para posts, stories, cardápios e panfletos — sem precisar saber design, direto no celular."
   },
   {
-    q: "Qual ferramenta visual é usada para mapear um modelo de negócio em uma única página?",
-    opts: ["SWOT","Business Model Canvas","Diagrama de Gantt","Árvore de Problemas"],
+    q: "Qual é o limite de faturamento anual para ser MEI (Microempreendedor Individual)?",
+    opts: ["R$ 36.000","R$ 60.000","R$ 81.000","R$ 120.000"],
+    ans: 2,
+    exp: "O MEI pode faturar até R$ 81.000 por ano. A formalização é gratuita em gov.br/mei e dá acesso a CNPJ, crédito e benefícios sociais."
+  },
+  {
+    q: "Qual ferramenta gratuita do Google ajuda a controlar finanças e estoque do negócio?",
+    opts: ["Google Chrome","Google Planilhas","Google Photos","Google Maps"],
     ans: 1,
-    exp: "O Business Model Canvas permite visualizar em uma página os 9 blocos fundamentais de um negócio: proposta de valor, clientes, receitas, custos, parceiros e mais."
+    exp: "O Google Planilhas é gratuito, salva na nuvem e pode ser acessado pelo celular. O SEBRAE disponibiliza planilhas prontas para controle financeiro."
+  },
+  {
+    q: "Qual ODS (Objetivo de Desenvolvimento Sustentável) está mais relacionado ao apoio aos pequenos negócios?",
+    opts: ["ODS 3 – Saúde","ODS 7 – Energia","ODS 8 – Trabalho Decente e Crescimento Econômico","ODS 14 – Vida na Água"],
+    ans: 2,
+    exp: "O ODS 8 trata exatamente de promover o crescimento econômico inclusivo e o trabalho decente — missão diretamente ligada ao fortalecimento dos pequenos negócios locais."
   }
 ];
 
-let current = 0, score = 0, answered = false;
+let cur = 0, score = 0, answered = false;
 
 function renderQ() {
-  const q = questions[current];
-  document.getElementById('quiz-counter').textContent = `Questão ${current+1} de ${questions.length}`;
-  document.getElementById('quiz-fill').style.width = `${((current+1)/questions.length)*100}%`;
-  document.getElementById('quiz-q').textContent = q.q;
-  const opts = document.getElementById('quiz-opts');
+  const q = qs[cur];
+  document.getElementById('qcount').textContent = `Questão ${cur+1} de ${qs.length}`;
+  document.getElementById('qbar').style.width = `${((cur+1)/qs.length)*100}%`;
+  document.getElementById('qtext').textContent = q.q;
+  const opts = document.getElementById('qopts');
   opts.innerHTML = '';
   q.opts.forEach((o, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'quiz-opt';
-    btn.textContent = o;
-    btn.onclick = () => answer(i);
-    opts.appendChild(btn);
+    const b = document.createElement('button');
+    b.className = 'q-opt'; b.textContent = o;
+    b.onclick = () => answer(i);
+    opts.appendChild(b);
   });
-  document.getElementById('quiz-fb').className = 'quiz-feedback';
-  document.getElementById('quiz-fb').textContent = '';
-  document.getElementById('quiz-next').style.display = 'none';
+  document.getElementById('qfb').className = 'q-fb';
+  document.getElementById('qnext').style.display = 'none';
   answered = false;
 }
 
 function answer(i) {
   if (answered) return;
   answered = true;
-  const q = questions[current];
-  const btns = document.querySelectorAll('.quiz-opt');
+  const q = qs[cur];
+  const btns = document.querySelectorAll('.q-opt');
   btns.forEach(b => b.disabled = true);
-  const fb = document.getElementById('quiz-fb');
+  const fb = document.getElementById('qfb');
   if (i === q.ans) {
     score++;
     btns[i].classList.add('correct');
-    fb.className = 'quiz-feedback show correct';
+    fb.className = 'q-fb show correct';
     fb.textContent = '✅ Correto! ' + q.exp;
   } else {
     btns[i].classList.add('wrong');
     btns[q.ans].classList.add('correct');
-    fb.className = 'quiz-feedback show wrong';
+    fb.className = 'q-fb show wrong';
     fb.textContent = '❌ Não foi dessa vez. ' + q.exp;
   }
-  document.getElementById('quiz-next').style.display = current < questions.length-1 ? 'inline-flex' : 'none';
-  if (current === questions.length-1) {
-    setTimeout(showResult, 1200);
-  }
+  if (cur < qs.length - 1) document.getElementById('qnext').style.display = 'inline-flex';
+  else setTimeout(showResult, 1200);
 }
 
-function nextQ() {
-  current++;
-  renderQ();
-}
+function nextQ() { cur++; renderQ(); }
 
 function showResult() {
-  document.getElementById('quiz-content').style.display = 'none';
-  const res = document.getElementById('quiz-result');
-  res.classList.add('show');
-  const pct = Math.round((score/questions.length)*100);
-  document.getElementById('result-score').textContent = `${score}/${questions.length}`;
-  let emoji, msg;
-  if (pct === 100) { emoji='🏆'; msg='Perfeito! Você domina o empreendedorismo!'; }
-  else if (pct >= 75) { emoji='🎉'; msg='Muito bem! Você tem uma ótima base sobre o tema.'; }
-  else if (pct >= 50) { emoji='💪'; msg='Bom começo! Revise os conceitos e tente novamente.'; }
-  else { emoji='📚'; msg='Que tal revisar o conteúdo acima e tentar de novo?'; }
-  document.getElementById('result-emoji').textContent = emoji;
-  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('qcontent').style.display = 'none';
+  const r = document.getElementById('qresult');
+  r.classList.add('show');
+  const pct = Math.round((score/qs.length)*100);
+  document.getElementById('rscore').textContent = `${score}/${qs.length}`;
+  let e, m;
+  if (pct===100){e='🏆';m='Incrível! Você domina o digital para negócios!';}
+  else if(pct>=71){e='🎉';m='Muito bem! Você está no caminho certo.';}
+  else if(pct>=43){e='💪';m='Bom começo! Explore as ferramentas acima e tente de novo.';}
+  else{e='📚';m='Que tal navegar pelo site e depois tentar novamente?';}
+  document.getElementById('remi').textContent = e;
+  document.getElementById('rmsg').textContent = m;
 }
 
-function restartQuiz() {
-  current = 0; score = 0;
-  document.getElementById('quiz-content').style.display = 'block';
-  document.getElementById('quiz-result').classList.remove('show');
+function restartQ() {
+  cur = 0; score = 0;
+  document.getElementById('qcontent').style.display = 'block';
+  document.getElementById('qresult').classList.remove('show');
   renderQ();
 }
 
